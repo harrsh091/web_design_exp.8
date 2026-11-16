@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Book Collection Manager</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <h1>Book Collection</h1>
+    <p>Add, view, edit and delete books using the REST API.</p>
+  </header>
+
+  <main class="layout">
+    <!-- Add / Edit form -->
+    <section class="panel" aria-labelledby="form-heading">
+      <h2 id="form-heading">Add a book</h2>
+
+      <div id="message" class="message" role="status" aria-live="polite"></div>
+
+      <div id="book-form">
+        <input type="hidden" id="book-id" />
+
+        <label for="title">Title</label>
+        <input type="text" id="title" placeholder="e.g. The Guide" />
+
+        <label for="author">Author</label>
+        <input type="text" id="author" placeholder="e.g. R. K. Narayan" />
+
+        <label for="year">Year published</label>
+        <input type="number" id="year" placeholder="e.g. 1958" />
+
+        <label for="genre">Genre</label>
+        <input type="text" id="genre" placeholder="e.g. Fiction" />
+
+        <div class="button-row">
+          <button type="button" id="save-btn" class="btn btn-primary">Add book</button>
+          <button type="button" id="cancel-btn" class="btn btn-secondary hidden">Cancel edit</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Book list -->
+    <section class="panel" aria-labelledby="list-heading">
+      <div class="list-top">
+        <h2 id="list-heading">All books <span id="count" class="count"></span></h2>
+        <input type="search" id="search" class="search" placeholder="Search title or author" aria-label="Search books" />
+      </div>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Title</th>
+              <th>Author</th>
+              <th>Year</th>
+              <th>Genre</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="book-list"></tbody>
+        </table>
+      </div>
+      <p id="empty" class="empty hidden">No books found. Add one using the form.</p>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
